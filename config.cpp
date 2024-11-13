@@ -43,30 +43,6 @@ class CfgFunctions
 
 };
 
-// formations
-class CfgFormations
-{
-	class West
-	{
-		#include "cfgFormations.hpp"
-	};
-
-	class East : West
-	{
-		#include "cfgFormations.hpp"
-	};
-
-	class Civ : West
-	{
-		#include "cfgFormations.hpp"
-	};
-
-	class Guer : West
-	{
-		#include "cfgFormations.hpp"
-	};
-};
-
 // Defines the new order as available from the Control AI - Military
 class CfgAvailableBehaviors
 {
@@ -76,12 +52,12 @@ class CfgAvailableBehaviors
 		allowRotate = true;
 
 
-		displayname = "Reverse";
-		description = "Reverse";				
+		displayname = "behaviors_sample";
+		description = "behaviors_sample";				
 
 		//displayCondition = "\core\addons\plugins\generic_behaviors_public\data\scripts\waypointDisplayCondition.sqf";
 
-		orderName = "Reverse";
+		orderName = "behaviors_sample";
 		prepareActionMessage = "vbs2\vbs_plugins\ai\standard_behaviors\data\scripts\PrepareBTParameters.sqf";
 		
 		class RootBehaviors
