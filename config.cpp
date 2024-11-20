@@ -1,5 +1,5 @@
 #include "\vbs2\basic_defines.hpp"
-#define __CurrentDir__ \vbs2\customer\plugins\behaviors_sample
+#define __CurrentDir__ \vbs2\customer\plugins\behaviors_sample\
 
 //Class necessary for VBS to load the new addon correctly
 class CfgPatches
@@ -12,7 +12,9 @@ class CfgPatches
 		requiredAddons[] = {
 			vbs2_editor, 
 			vbs2_people,
+			vbs2_plugins_function_library,
 			vbs2_vbs_plugins_standard_behaviors,
+			vbs2_vbs_plugins_ai_core_public
 		};
 		modules[] =
 		{
@@ -31,18 +33,6 @@ class CfgBehaviorTrees
 	};
 };
 
-class vbs_functions_base;
-class CfgFunctions
-{
-	// Macro to build a function in sripts top folder
-	#define MAKE_CORE_FUNCTION(functionName)                                 \
-	class fn_vbs_behaviors_sample_##functionName : vbs_functions_base                     \
-	{                                                                       \
-		path = __CurrentDir__\data\scripts\fn_vbs_behaviors_sample__##functionName##.sqf;  \
-	}
-
-};
-
 // Defines the new order as available from the Control AI - Military
 class CfgAvailableBehaviors
 {
@@ -52,12 +42,10 @@ class CfgAvailableBehaviors
 		allowRotate = true;
 
 
-		displayname = "behaviors_sample";
-		description = "behaviors_sample";				
+		displayname = "Sample Idle";
+		description = "Sample Idle";				
 
-		//displayCondition = "\core\addons\plugins\generic_behaviors_public\data\scripts\waypointDisplayCondition.sqf";
-
-		orderName = "behaviors_sample";
+		orderName = "Idle";
 		prepareActionMessage = "vbs2\vbs_plugins\ai\standard_behaviors\data\scripts\PrepareBTParameters.sqf";
 		
 		class RootBehaviors
@@ -69,18 +57,6 @@ class CfgAvailableBehaviors
 		
 		class Parameters
 		{
-			class orderParameters
-			{
-				displayName = "orderParameters";
-				value = "";
-				type = "table";
-			};
-			class reportCompletedToExternal
-			{
-				displayName = "reportCompletedToExternal";
-				value = "false";
-				type = "boolean";
-			};
 			class debugEnabled
 			{
 				displayName = "debugEnabled";
